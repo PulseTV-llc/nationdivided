@@ -24,7 +24,24 @@ export type ImageAsset = {
   width: number;
   height: number;
   credit?: string;
+  /** Short caption shown under the frame (falls back to alt). */
+  caption?: string;
+  /**
+   * True for illustrative stand-in images (not footage from the film).
+   * They are labelled "Placeholder" on the site so no one mistakes them
+   * for documentary material. Set false only for real production stills.
+   */
+  illustrative?: boolean;
 };
+
+const still = (file: string, caption: string, alt: string): ImageAsset => ({
+  src: `/media/stills/${file}.jpg`,
+  width: 1672,
+  height: 941,
+  caption,
+  alt,
+  illustrative: true,
+});
 
 export type VideoAsset = {
   /** Muted, looping background clip — H.264 MP4 and/or WebM. */
@@ -75,7 +92,16 @@ export const media = {
   filmYouTubeId: null as string | null,
 
   /** Interview stills used on the homepage contact sheet (6–12 frames). */
-  interviewStills: [] as ImageAsset[],
+  interviewStills: [
+    still("detroit-dusk", "Main Street, Detroit", "Detroit skyline at dusk, headlights streaming along a wet freeway"),
+    still("kitchen-table", "Kitchen table", "A steaming mug and an open notebook on a kitchen table in warm morning light"),
+    still("water-tower-road", "County road", "A small-town water tower silhouetted against a twilight sky"),
+    still("midnight-diner", "Night shift", "An empty diner counter under pendant lights on a rainy night"),
+    still("polling-place", "Polling place", "Voters lining up at the lit entrance of a polling place at night"),
+    still("rally", "Rally", "A crowd facing a speaker at a podium in front of a large American flag"),
+    still("rural-highway", "The drive home", "A moonlit rural highway leading past a farm with a lit barn"),
+    still("interview-studio", "Interview setup", "An empty leather chair under studio lights, camera and boom microphone ready"),
+  ] as ImageAsset[],
 
   /** Behind-the-scenes production stills. */
   behindTheScenes: [] as ImageAsset[],
@@ -97,7 +123,7 @@ export const placeholderContactSheet: { scene: PlaceholderScene; caption: string
   { scene: "field", caption: "County road" },
   { scene: "diner", caption: "Morning shift" },
   { scene: "porch", caption: "Front porch" },
-  { scene: "crowd", caption: "Rally, 2024" },
+  { scene: "crowd", caption: "Rally" },
   { scene: "road", caption: "The drive home" },
   { scene: "portrait", caption: "Interview setup" },
 ];

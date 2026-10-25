@@ -12,8 +12,8 @@ const tints: Tint[] = ["neutral", "gold", "steel", "neutral", "crimson", "neutra
 export function ContactSheet() {
   const stills = media.interviewStills;
   const frames = stills.length
-    ? stills.map((s, i) => ({ image: s, caption: s.alt, scene: placeholderContactSheet[i % 8].scene }))
-    : placeholderContactSheet.map((p) => ({ image: null, caption: p.caption, scene: p.scene }));
+    ? stills.map((s, i) => ({ image: s, caption: s.caption ?? s.alt, scene: placeholderContactSheet[i % 8].scene, placeholder: Boolean(s.illustrative) }))
+    : placeholderContactSheet.map((p) => ({ image: null, caption: p.caption, scene: p.scene, placeholder: true }));
 
   return (
     <section aria-labelledby="sheet-title" className="relative overflow-hidden border-t border-line bg-night py-[clamp(6rem,14vh,10rem)]">
@@ -27,7 +27,7 @@ export function ContactSheet() {
         </div>
         <Reveal as="p" className="max-w-sm text-bone">
           Frames from the road, the kitchen table and the morning shift.{" "}
-          {stills.length ? null : (
+          {frames.some((f) => f.placeholder) && (
             <span className="text-ash">These are placeholder frames until production stills are approved for release.</span>
           )}
         </Reveal>
@@ -52,7 +52,7 @@ export function ContactSheet() {
                       seed={i + 11}
                       showLabel={false}
                       sizes="(min-width:1024px) 25vw, 72vw"
-                      className="h-full w-full transition-[filter,transform] duration-700 ease-[var(--ease-out-expo)] [filter:grayscale(0.7)_contrast(1.05)] group-hover:scale-[1.03] group-hover:[filter:none] group-focus-visible:[filter:none]"
+                      className="h-full w-full transition-[filter,transform] duration-700 ease-[var(--ease-out-expo)] [filter:saturate(0.92)] group-hover:scale-[1.03] group-hover:[filter:none] group-focus-visible:[filter:none]"
                     />
                     {/* Grease-pencil circle */}
                     <svg
@@ -72,11 +72,11 @@ export function ContactSheet() {
                       />
                     </svg>
                   </div>
-                  <figcaption className="label mt-3 flex justify-between text-[0.6rem] text-ash">
+                  <figcaption className="label mt-3 flex justify-between gap-3 text-[0.6rem] text-ash">
                     <span>
-                      {String(i + 1).padStart(2, "0")}A {f.image ? "" : "· Placeholder"}
+                      {String(i + 1).padStart(2, "0")}A {f.placeholder ? "· Placeholder" : ""}
                     </span>
-                    <span className="text-bone">{f.caption}</span>
+                    <span className="text-right text-bone">{f.caption}</span>
                   </figcaption>
                 </figure>
               </Reveal>
