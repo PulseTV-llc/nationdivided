@@ -39,6 +39,7 @@ export function Frame({
           fill
           sizes={sizes}
           priority={priority}
+          unoptimized={image.unoptimized}
           className={`object-cover ${drift ? "animate-drift" : ""}`}
           style={image.focus ? { objectPosition: image.focus } : undefined}
         />

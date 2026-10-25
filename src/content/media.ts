@@ -34,6 +34,8 @@ export type ImageAsset = {
   illustrative?: boolean;
   /** Focal point kept in view when the image is cropped (CSS object-position), e.g. "80% 50%". */
   focus?: string;
+  /** Serve the file as-is, skipping Next.js re-compression. Use for small, already-compressed sources. */
+  unoptimized?: boolean;
 };
 
 const still = (file: string, caption: string, alt: string): ImageAsset => ({
@@ -154,6 +156,7 @@ export const media = {
       width: 1440,
       height: 962,
       focus: "18% 50%",
+      unoptimized: true,
     },
     {
       src: "/media/behind-the-scenes/bts-02.jpg",
@@ -161,6 +164,7 @@ export const media = {
       width: 1440,
       height: 961,
       focus: "85% 50%",
+      unoptimized: true,
     },
     {
       src: "/media/behind-the-scenes/bts-03.jpg",
@@ -168,6 +172,7 @@ export const media = {
       width: 1440,
       height: 962,
       focus: "38% 50%",
+      unoptimized: true,
     },
   ] as ImageAsset[],
 
