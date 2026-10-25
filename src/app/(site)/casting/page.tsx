@@ -42,7 +42,7 @@ export default function CastingPage() {
             <Reveal as="p" className="editorial text-[clamp(1.6rem,2.8vw,2.6rem)] italic leading-[1.1] text-ivory md:col-span-6">
               {casting.intro[0]} {casting.intro[1]}
             </Reveal>
-            <Reveal delay={150} className="flex flex-col gap-3 sm:flex-row md:col-span-5 md:col-start-8 md:justify-end">
+            <Reveal delay={150} className="flex flex-wrap gap-3 md:col-span-5 md:col-start-8 md:justify-end">
               <Cta href="/casting/apply">Apply to share your story</Cta>
               <Cta href="#participating" variant="outline">
                 Learn about participating
@@ -227,7 +227,7 @@ export default function CastingPage() {
           <h2 id="apply-cta-title" className="display max-w-5xl text-[clamp(3rem,8vw,8rem)]">
             Your story belongs in the record.
           </h2>
-          <div className="mt-12 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-12 flex flex-wrap justify-center gap-3">
             <Cta href="/casting/apply">Apply to share your story</Cta>
             <Cta href={`mailto:${site.contact.casting}`} variant="outline">
               Email the casting team

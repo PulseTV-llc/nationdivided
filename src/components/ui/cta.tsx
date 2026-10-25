@@ -62,7 +62,7 @@ export function Cta({
       onClick={onClick}
       data-cursor={cursor}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className={`group relative inline-flex min-h-12 items-center justify-center gap-3 overflow-hidden whitespace-nowrap rounded-full px-6 py-3.5 text-[0.75rem] font-medium uppercase tracking-[0.14em] sm:px-7 sm:tracking-[0.2em] transition-[background-color,color,border-color,transform] duration-500 ease-[var(--ease-out-expo)] ${styles[variant]} ${className}`}
+      className={`group relative inline-flex min-h-12 max-w-full shrink-0 items-center justify-center gap-3 overflow-hidden whitespace-nowrap rounded-full px-6 py-3.5 text-[0.75rem] font-medium uppercase tracking-[0.14em] sm:px-7 sm:tracking-[0.2em] transition-[background-color,color,border-color,transform] duration-500 ease-[var(--ease-out-expo)] ${styles[variant]} ${className}`}
     >
       <span ref={inner} className="relative inline-flex items-center gap-3 transition-transform duration-500 ease-[var(--ease-out-expo)]">
         <span className="relative block overflow-hidden">

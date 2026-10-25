@@ -40,7 +40,7 @@ export function CastingCall() {
           <Reveal as="p" delay={200} className="leading-relaxed text-bone">
             {casting.closer.join(" ")}
           </Reveal>
-          <Reveal delay={300} className="flex flex-col gap-3 pt-4 sm:flex-row lg:flex-col xl:flex-row">
+          <Reveal delay={300} className="flex flex-wrap gap-3 pt-4">
             <Cta href="/casting/apply">Apply to share your story</Cta>
             <Cta href="/casting" variant="outline">
               Learn about participating
