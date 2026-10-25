@@ -1,8 +1,8 @@
 /**
  * Site-wide copy and settings.
  *
- * Contact addresses use the reserved `.example` domain until StockHouse Films
- * supplies real ones. Search the project for `.example` before launch.
+ * The casting address is real. Press and general addresses still use the
+ * reserved `.example` domain until StockHouse Films supplies real ones.
  */
 
 export const site = {
@@ -19,7 +19,7 @@ export const site = {
   status: "In development",
 
   contact: {
-    casting: "casting@stockhousefilms.example",
+    casting: "casting@stockhousefilms.org",
     press: "press@stockhousefilms.example",
     general: "hello@stockhousefilms.example",
   },
