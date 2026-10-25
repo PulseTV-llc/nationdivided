@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Download } from "lucide-react";
-import { media } from "@/content/media";
+import { media, type ImageAsset } from "@/content/media";
 import { site } from "@/content/site";
 import { press } from "@/content/studio";
 import { Frame } from "@/components/cinematic/frame";
 import { Lines, Reveal } from "@/components/cinematic/reveal";
 import { PressForm } from "@/components/forms/press-form";
 import { Poster } from "@/components/ui/poster";
+import { Lightbox, LightboxTrigger } from "@/components/ui/lightbox";
 
 export const metadata: Metadata = {
   title: "Press",
@@ -16,6 +17,12 @@ export const metadata: Metadata = {
 
 export default function PressPage() {
   const stills = media.pressStills;
+  // Poster first, then the promo stills, in one lightbox.
+  const gallery: ImageAsset[] = [
+    ...(media.poster ? [{ ...media.poster, caption: "Official poster · one-sheet" }] : []),
+    ...stills,
+  ];
+  const stillsOffset = media.poster ? 1 : 0;
   return (
     <>
       <section className="gutter pb-16 pt-[calc(var(--nav-h)+5rem)]">
@@ -98,9 +105,12 @@ export default function PressPage() {
               : "Approved stills will be added here. The frames below are placeholders and are not for publication."}
           </p>
         </div>
+        <Lightbox items={gallery}>
         {media.poster && (
           <div className="gutter mb-16 grid gap-10 md:grid-cols-12 md:items-end">
-            <Poster className="md:col-span-5 lg:col-span-4" sizes="(min-width: 768px) 35vw, 90vw" />
+            <LightboxTrigger index={0} label="Official poster" className="md:col-span-5 lg:col-span-4">
+              <Poster sizes="(min-width: 768px) 35vw, 90vw" />
+            </LightboxTrigger>
             <div className="space-y-5 md:col-span-6 md:col-start-7">
               <p className="label text-gold">Official poster</p>
               <p className="display text-[clamp(2rem,3.4vw,3.2rem)]">Nation Divided — one-sheet</p>
@@ -122,16 +132,27 @@ export default function PressPage() {
           {(stills.length ? stills : [null, null, null]).map((img, i) => (
             <li key={i}>
               <figure>
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <Frame
-                    image={img}
-                    scene={(["portrait", "street", "field"] as const)[i % 3]}
-                    tint={(["neutral", "steel", "gold"] as const)[i % 3]}
-                    seed={80 + i}
-                    label="Not for publication"
-                    className="h-full w-full"
-                  />
-                </div>
+                {img ? (
+                  <LightboxTrigger index={stillsOffset + i} label={img.caption ?? img.alt} className="relative aspect-[4/3] overflow-hidden">
+                    <Frame
+                      image={img}
+                      scene={(["portrait", "street", "field"] as const)[i % 3]}
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      className="h-full w-full"
+                    />
+                  </LightboxTrigger>
+                ) : (
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Frame
+                      image={img}
+                      scene={(["portrait", "street", "field"] as const)[i % 3]}
+                      tint={(["neutral", "steel", "gold"] as const)[i % 3]}
+                      seed={80 + i}
+                      label="Not for publication"
+                      className="h-full w-full"
+                    />
+                  </div>
+                )}
                 {img && (
                   <figcaption className="mt-3 flex justify-between gap-4 text-sm text-ash">
                     <span>{img.caption ?? img.alt}</span>
@@ -144,6 +165,7 @@ export default function PressPage() {
             </li>
           ))}
         </ul>
+        </Lightbox>
       </section>
 
       <section id="kit" aria-labelledby="kit-h" className="gutter scroll-mt-24 border-t border-line py-20">
