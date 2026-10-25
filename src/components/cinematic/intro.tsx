@@ -2,6 +2,7 @@
 
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
+import { StudioLogo } from "@/components/ui/studio-logo";
 
 declare global {
   interface Window {
@@ -90,9 +91,10 @@ export function Intro() {
       <div data-intro-top className="absolute inset-x-0 top-0 h-1/2 bg-ink" />
       <div data-intro-bottom className="absolute inset-x-0 bottom-0 h-1/2 bg-ink" />
       <div aria-hidden className="absolute inset-0 flex flex-col items-center justify-center">
-        <p data-intro-label className="label mb-6 text-ash">
-          StockHouse Films presents
-        </p>
+        <div data-intro-label className="mb-8 flex flex-col items-center gap-4">
+          <StudioLogo decorative className="w-32 text-ivory sm:w-40" />
+          <span className="label text-ash">presents</span>
+        </div>
         <div data-intro-line className="h-px w-[min(70vw,46rem)] origin-center bg-gold" />
         <p data-intro-label className="label mt-6 flex gap-6 text-ash">
           <span>Reel 01</span>

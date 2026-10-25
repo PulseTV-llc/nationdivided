@@ -54,8 +54,16 @@ export const media = {
   /** Official one-sheet. 2:3 portrait, 2000×3000. */
   poster: null as ImageAsset | null,
 
-  /** StockHouse Films wordmark (SVG preferred). */
-  studioLogo: null as ImageAsset | null,
+  /**
+   * Official StockHouse Films logo. Black on transparent; the site renders it
+   * as a mask so it can be shown in ivory or gold on dark backgrounds.
+   */
+  studioLogo: {
+    src: "/media/brand/stockhouse-logo.png",
+    alt: "StockHouse Films",
+    width: 1226,
+    height: 700,
+  } as ImageAsset | null,
 
   /** Social share image override. 1200×630. Generated automatically when null. */
   socialCard: null as ImageAsset | null,

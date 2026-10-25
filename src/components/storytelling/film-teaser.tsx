@@ -2,6 +2,7 @@ import Link from "next/link";
 import { editorialPrinciples, site } from "@/content/site";
 import { Lines, Reveal } from "@/components/cinematic/reveal";
 import { Frame } from "@/components/cinematic/frame";
+import { StudioLogo } from "@/components/ui/studio-logo";
 
 /** Closing homepage block: the film card and the editorial promise. */
 export function FilmTeaser() {
@@ -16,7 +17,10 @@ export function FilmTeaser() {
         >
           <Frame scene="road" tint="neutral" seed={9} label="Poster" className="h-full w-full transition-transform duration-[1200ms] ease-[var(--ease-out-expo)] group-hover:scale-[1.03]" />
           <div className="absolute inset-0 flex flex-col justify-between p-[clamp(1.25rem,3vw,2.5rem)]">
-            <p className="label text-ivory/80">{site.studio} presents</p>
+            <p className="flex items-center gap-3">
+              <StudioLogo className="w-20 text-ivory/90" />
+              <span className="label text-ivory/70">presents</span>
+            </p>
             <div>
               <p className="display text-[clamp(3.5rem,8vw,7.5rem)] leading-[0.82]">
                 Nation

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { nav, site } from "@/content/site";
 import { MotionToggle } from "@/components/cinematic/motion-toggle";
 import { AmbientSound } from "@/components/cinematic/ambient-sound";
+import { StudioLogo } from "@/components/ui/studio-logo";
 import { YouTubeIcon } from "@/components/ui/icons";
 
 export function SiteFooter() {
@@ -9,6 +10,7 @@ export function SiteFooter() {
     <footer className="relative overflow-hidden border-t border-line bg-ink pt-20">
       <div className="gutter grid gap-14 pb-16 md:grid-cols-12">
         <div className="md:col-span-5">
+          <StudioLogo className="mb-5 w-28 text-ivory" />
           <p className="label mb-6 text-gold">A {site.studio} documentary</p>
           <p className="editorial max-w-md text-3xl leading-[1.1] text-ivory md:text-4xl">
             <em>Behind every political opinion is a person.</em>

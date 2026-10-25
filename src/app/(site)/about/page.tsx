@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { StudioLogo } from "@/components/ui/studio-logo";
 import { media } from "@/content/media";
 import { editorialPrinciples, site } from "@/content/site";
 import { studio } from "@/content/studio";
@@ -30,7 +30,10 @@ export default function AboutPage() {
         <Reveal mode="mask" className="lg:col-span-4 lg:col-start-9">
           <div className="relative flex aspect-square items-center justify-center border border-line bg-night">
             {logo ? (
-              <Image src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} className="h-auto w-2/3" />
+              <div className="flex w-2/3 flex-col items-center gap-6">
+                <StudioLogo className="w-full text-ivory" />
+                <p className="label tracking-[0.6em] text-gold">Films</p>
+              </div>
             ) : (
               <div className="text-center">
                 <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center border border-gold/60">

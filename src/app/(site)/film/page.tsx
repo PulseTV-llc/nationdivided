@@ -8,6 +8,7 @@ import { Cta } from "@/components/ui/cta";
 import { YouTubeEmbed } from "@/components/ui/youtube-embed";
 import { YouTubeIcon } from "@/components/ui/icons";
 import { Timecode } from "@/components/cinematic/timecode";
+import { StudioLogo } from "@/components/ui/studio-logo";
 
 export const metadata: Metadata = {
   title: "The Film",
@@ -28,6 +29,7 @@ export default function FilmPage() {
         </div>
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/60 to-ink/30" aria-hidden />
         <div className="gutter pb-20 pt-[calc(var(--nav-h)+4rem)] text-center">
+          <StudioLogo className="mx-auto mb-6 w-28 text-ivory/90 sm:w-32" />
           <p className="label mb-10 text-ash">A {site.studio} documentary</p>
           <h1 id="film-title" className="display text-[clamp(4.5rem,17vw,17rem)] leading-[0.8]">
             <span className="line-mask">

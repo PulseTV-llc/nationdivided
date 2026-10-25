@@ -194,11 +194,13 @@ html.lenis body {
   filter: none;
   transform: none;
 }
-.js [data-reveal="mask"] {
+/* Clip the children, not the observed element: a fully clipped element is
+   never reported as intersecting, so it would never reveal. */
+.js [data-reveal="mask"] > * {
   clip-path: inset(100% 0 0 0);
   transition: clip-path 1.6s var(--ease-cinema) var(--d, 0ms);
 }
-.js [data-reveal="mask"][data-shown] {
+.js [data-reveal="mask"][data-shown] > * {
   clip-path: inset(0 0 0 0);
 }
 .js [data-reveal="rule"] {
