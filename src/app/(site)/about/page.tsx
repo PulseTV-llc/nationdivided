@@ -76,7 +76,15 @@ export default function AboutPage() {
             A film for everyone who disagrees
           </h2>
           <div className="relative mt-10 aspect-[4/3] overflow-hidden">
-            <Frame scene="diner" tint="neutral" seed={70} label="Interview" className="h-full w-full" />
+            <Frame
+              image={media.aboutInterview}
+              scene="diner"
+              tint="neutral"
+              seed={70}
+              label="Interview"
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="h-full w-full"
+            />
           </div>
         </div>
         <dl className="space-y-10 lg:col-span-6 lg:col-start-7">

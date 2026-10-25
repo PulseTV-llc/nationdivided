@@ -136,6 +136,16 @@ export const media = {
     illustrative: true,
   } as ImageAsset | null,
 
+  /** About page — "Editorial standards" interview frame (16:9, shown cropped to 4:3). */
+  aboutInterview: {
+    src: "/media/about/editorial-interview.jpg",
+    alt: "An older man in a checked shirt sits on a yellow couch against a dark blue wall, mid-answer during an interview",
+    width: 1672,
+    height: 941,
+    illustrative: true,
+    focus: "55% 40%",
+  } as ImageAsset | null,
+
   /** Behind-the-scenes production stills. */
   behindTheScenes: [
     still("water-tower-road", "County road", "A small-town water tower silhouetted against a twilight sky"),
