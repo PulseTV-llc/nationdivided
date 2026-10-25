@@ -9,6 +9,7 @@ import { YouTubeEmbed } from "@/components/ui/youtube-embed";
 import { YouTubeIcon } from "@/components/ui/icons";
 import { Timecode } from "@/components/cinematic/timecode";
 import { StudioLogo } from "@/components/ui/studio-logo";
+import { Poster } from "@/components/ui/poster";
 
 export const metadata: Metadata = {
   title: "The Film",
@@ -93,8 +94,22 @@ export default function FilmPage() {
       )}
 
       {/* Logline + details */}
-      <section aria-labelledby="about-film" className="gutter grid gap-14 border-t border-line py-[clamp(5rem,12vh,9rem)] lg:grid-cols-12">
-        <div className="lg:col-span-7">
+      <section aria-labelledby="about-film" className="gutter grid gap-14 border-t border-line py-[clamp(5rem,12vh,9rem)] lg:grid-cols-12 lg:items-start">
+        {media.poster && (
+          <figure className="mx-auto w-full max-w-md lg:col-span-5 lg:max-w-none">
+            <Reveal mode="mask">
+              <Poster sizes="(min-width: 1024px) 38vw, 90vw" />
+            </Reveal>
+            <figcaption className="label mt-4 flex justify-between gap-4 text-ash">
+              <span>Official poster</span>
+              <a href={media.poster.src} download className="text-gold hover:text-ivory">
+                Download
+              </a>
+            </figcaption>
+          </figure>
+        )}
+        <div className={media.poster ? "space-y-12 lg:col-span-6 lg:col-start-7" : "lg:col-span-7"}>
+        <div>
           <p className="label mb-6 text-gold">Logline</p>
           <h2 id="about-film" className="sr-only">
             About the film
@@ -103,7 +118,7 @@ export default function FilmPage() {
             {site.logline}
           </Reveal>
         </div>
-        <dl className="grid content-start gap-px bg-line lg:col-span-4 lg:col-start-9">
+        <dl className="grid content-start gap-px bg-line">
           {[
             ["Format", site.format],
             ["Genre", site.genre],
@@ -117,6 +132,7 @@ export default function FilmPage() {
             </div>
           ))}
         </dl>
+        </div>
       </section>
 
       {/* Behind the scenes */}

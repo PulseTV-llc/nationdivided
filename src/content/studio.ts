@@ -21,12 +21,11 @@ export const studio = {
     { title: "Editorial independence", body: "No one outside the production approves the edit." },
   ],
   credits: [
-    { role: "Director", name: null },
-    { role: "Producer", name: null },
-    { role: "Executive Producer", name: null },
-    { role: "Director of Photography", name: null },
-    { role: "Editor", name: null },
-    { role: "Original Score", name: null },
+    // From the official poster.
+    { role: "Director", name: "Nicole Bright" },
+    { role: "Producer", name: "Darius Henry" },
+    { role: "Editor", name: "Darius Henry" },
+    { role: "Featured Music", name: "Various Artists" },
   ] as Credit[],
 };
 

@@ -3,12 +3,23 @@ import { editorialPrinciples, site } from "@/content/site";
 import { Lines, Reveal } from "@/components/cinematic/reveal";
 import { Frame } from "@/components/cinematic/frame";
 import { StudioLogo } from "@/components/ui/studio-logo";
+import { Poster } from "@/components/ui/poster";
+import { media } from "@/content/media";
 
 /** Closing homepage block: the film card and the editorial promise. */
 export function FilmTeaser() {
   return (
     <section aria-labelledby="film-teaser-title" className="relative border-t border-line bg-night">
       <div className="gutter grid gap-16 py-[clamp(6rem,14vh,10rem)] lg:grid-cols-12">
+        {media.poster ? (
+          <Link href="/film" data-cursor="View" className="group block lg:col-span-5">
+            <Poster hover sizes="(min-width: 1024px) 38vw, 90vw" />
+            <span className="label mt-5 flex items-center justify-between border-t border-line pt-4">
+              <span className="text-ash">Official poster</span>
+              <span className="text-gold transition-colors group-hover:text-ivory">Coming soon · The film &rarr;</span>
+            </span>
+          </Link>
+        ) : (
         <Link
           href="/film"
           data-cursor="Watch"
@@ -32,6 +43,7 @@ export function FilmTeaser() {
             </div>
           </div>
         </Link>
+        )}
 
         <div className="flex flex-col justify-between gap-14 lg:col-span-6 lg:col-start-7">
           <div>

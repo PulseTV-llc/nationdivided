@@ -6,6 +6,7 @@ import { press } from "@/content/studio";
 import { Frame } from "@/components/cinematic/frame";
 import { Lines, Reveal } from "@/components/cinematic/reveal";
 import { PressForm } from "@/components/forms/press-form";
+import { Poster } from "@/components/ui/poster";
 
 export const metadata: Metadata = {
   title: "Press",
@@ -97,6 +98,26 @@ export default function PressPage() {
               : "Approved stills will be added here. The frames below are placeholders and are not for publication."}
           </p>
         </div>
+        {media.poster && (
+          <div className="gutter mb-16 grid gap-10 md:grid-cols-12 md:items-end">
+            <Poster className="md:col-span-5 lg:col-span-4" sizes="(min-width: 768px) 35vw, 90vw" />
+            <div className="space-y-5 md:col-span-6 md:col-start-7">
+              <p className="label text-gold">Official poster</p>
+              <p className="display text-[clamp(2rem,3.4vw,3.2rem)]">Nation Divided — one-sheet</p>
+              <p className="max-w-md text-bone">
+                May be used for editorial coverage of the film with credit to {site.studio}. Please don&rsquo;t crop out or
+                alter the billing block.
+              </p>
+              <a
+                href={media.poster.src}
+                download="nation-divided-poster.jpg"
+                className="label inline-flex min-h-12 items-center gap-3 rounded-full border border-ivory/40 px-6 text-ivory transition-colors hover:border-gold hover:text-gold"
+              >
+                <Download aria-hidden className="h-4 w-4" /> Download poster (JPG, {media.poster.width}×{media.poster.height})
+              </a>
+            </div>
+          </div>
+        )}
         <ul className="gutter grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {(stills.length ? stills : [null, null, null]).map((img, i) => (
             <li key={i}>

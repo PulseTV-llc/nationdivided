@@ -77,7 +77,12 @@ export const media = {
   heroVideo: null as VideoAsset | null,
 
   /** Official one-sheet. 2:3 portrait, 2000×3000. */
-  poster: null as ImageAsset | null,
+  poster: {
+    src: "/media/poster/nation-divided-poster.jpg",
+    alt: "Nation Divided official poster: six Americans of different ages and backgrounds beneath a sky split between sunset and night, a road running toward a seam of light. Tagline: Every vote has a story.",
+    width: 1024,
+    height: 1536,
+  } as ImageAsset | null,
 
   /**
    * Official StockHouse Films logo. Black on transparent; the site renders it
