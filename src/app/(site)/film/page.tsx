@@ -26,7 +26,7 @@ export default function FilmPage() {
       {/* Title card */}
       <section aria-labelledby="film-title" className="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden">
         <div className="absolute inset-0 -z-10 opacity-60" aria-hidden>
-          <Frame scene="road" tint="neutral" seed={31} showLabel={false} className="h-full w-full" drift />
+          <Frame image={media.filmHero} scene="road" tint="neutral" seed={31} showLabel={false} sizes="100vw" priority className="h-full w-full" drift />
         </div>
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/60 to-ink/30" aria-hidden />
         <div className="gutter pb-20 pt-[calc(var(--nav-h)+4rem)] text-center">
@@ -61,7 +61,7 @@ export default function FilmPage() {
           <YouTubeEmbed id={trailer} title={`${site.title} — Official trailer`} />
         ) : (
           <div className="relative aspect-video overflow-hidden border border-line">
-            <Frame scene="studio" tint="neutral" seed={33} showLabel={false} className="absolute inset-0 h-full w-full opacity-60" />
+            <Frame image={media.trailerStandby} scene="studio" tint="neutral" seed={33} showLabel={false} sizes="(min-width: 1024px) 90vw, 100vw" className="absolute inset-0 h-full w-full opacity-60" />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 bg-ink/50 p-6 text-center">
               <p className="label flex items-center gap-3 text-ivory">
                 <span className="h-2 w-2 animate-blink rounded-full bg-crimson" aria-hidden /> Standby ·{" "}
@@ -153,6 +153,7 @@ export default function FilmPage() {
                 tint={(["gold", "steel", "crimson"] as const)[i]}
                 seed={40 + i}
                 label="Behind the scenes"
+                sizes="(min-width: 768px) 33vw, 100vw"
                 className="h-full w-full"
               />
             </Reveal>

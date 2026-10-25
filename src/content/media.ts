@@ -135,7 +135,17 @@ export const media = {
   } as ImageAsset | null,
 
   /** Behind-the-scenes production stills. */
-  behindTheScenes: [] as ImageAsset[],
+  behindTheScenes: [
+    still("water-tower-road", "County road", "A small-town water tower silhouetted against a twilight sky"),
+    still("midnight-diner", "Night shift", "An empty diner counter under pendant lights on a rainy night"),
+    still("detroit-dusk", "Detroit", "Detroit skyline at dusk, headlights streaming along a wet freeway"),
+  ] as ImageAsset[],
+
+  /** /film title card background. */
+  filmHero: still("rural-highway", "The drive home", "A moonlit rural highway leading past a farm with a lit barn") as ImageAsset | null,
+
+  /** /film trailer panel shown until the trailer exists. */
+  trailerStandby: still("interview-studio", "Interview setup", "An empty leather chair under studio lights, camera and boom microphone ready") as ImageAsset | null,
 
   /** Campaign-era archival clips. Only add material with documented clearance. */
   archivalClips: [] as (VideoAsset & { source: string; license: string })[],
