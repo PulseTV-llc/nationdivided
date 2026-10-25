@@ -40,6 +40,7 @@ export function Frame({
           sizes={sizes}
           priority={priority}
           className={`object-cover ${drift ? "animate-drift" : ""}`}
+          style={image.focus ? { objectPosition: image.focus } : undefined}
         />
       ) : (
         <Scene

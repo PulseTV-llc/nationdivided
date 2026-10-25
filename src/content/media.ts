@@ -32,6 +32,8 @@ export type ImageAsset = {
    * production stills are approved.
    */
   illustrative?: boolean;
+  /** Focal point kept in view when the image is cropped (CSS object-position), e.g. "80% 50%". */
+  focus?: string;
 };
 
 const still = (file: string, caption: string, alt: string): ImageAsset => ({
@@ -108,7 +110,7 @@ export const media = {
   interviewStills: [
     still("detroit-dusk", "Main Street, Detroit", "Detroit skyline at dusk, headlights streaming along a wet freeway"),
     still("kitchen-table", "Kitchen table", "A steaming mug and an open notebook on a kitchen table in warm morning light"),
-    still("water-tower-road", "County road", "A small-town water tower silhouetted against a twilight sky"),
+    { ...still("water-tower-road", "County road", "A small-town water tower silhouetted against a twilight sky"), focus: "80% 50%" },
     still("midnight-diner", "Night shift", "An empty diner counter under pendant lights on a rainy night"),
     still("polling-place", "Polling place", "Voters lining up at the lit entrance of a polling place at night"),
     still("rally", "Rally", "A crowd facing a speaker at a podium in front of a large American flag"),
