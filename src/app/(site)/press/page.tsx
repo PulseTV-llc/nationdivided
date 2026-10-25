@@ -122,7 +122,7 @@ export default function PressPage() {
           {(stills.length ? stills : [null, null, null]).map((img, i) => (
             <li key={i}>
               <figure>
-                <div className="relative aspect-[3/2] overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <Frame
                     image={img}
                     scene={(["portrait", "street", "field"] as const)[i % 3]}
@@ -134,7 +134,7 @@ export default function PressPage() {
                 </div>
                 {img && (
                   <figcaption className="mt-3 flex justify-between gap-4 text-sm text-ash">
-                    <span>{img.alt}</span>
+                    <span>{img.caption ?? img.alt}</span>
                     <a href={img.src} download className="label text-gold hover:underline">
                       Download
                     </a>

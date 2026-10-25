@@ -186,7 +186,32 @@ export const media = {
   archivalClips: [] as (VideoAsset & { source: string; license: string })[],
 
   /** Approved press stills for /press. */
-  pressStills: [] as ImageAsset[],
+  pressStills: [
+    {
+      src: "/media/press/nation-divided-promo-01.jpg",
+      caption: "Promo art · The conversation",
+      alt: "Nation Divided promotional art: four people talk in a lamplit living room, a city skyline at dusk through the window, with the title and the tagline 'Every vote has a story. A StockHouse Films documentary.'",
+      width: 1448,
+      height: 1086,
+      unoptimized: true,
+    },
+    {
+      src: "/media/press/nation-divided-promo-02.jpg",
+      caption: "Promo art · Profile",
+      alt: "Nation Divided promotional art: a woman's silhouetted profile split between a night city skyline and a sunset over a small town, with the title and the tagline 'Every vote has a story.'",
+      width: 1448,
+      height: 1086,
+      unoptimized: true,
+    },
+    {
+      src: "/media/press/nation-divided-promo-03.jpg",
+      caption: "Promo art · The road",
+      alt: "Nation Divided promotional art: a road divided by a beam of light, a red barn and church at sunset on one side and a city skyline at night on the other, with the title and the tagline 'Every vote has a story.'",
+      width: 1448,
+      height: 1086,
+      unoptimized: true,
+    },
+  ] as ImageAsset[],
 
   /** Downloadable press kit (PDF/ZIP) — leave null until available. */
   pressKit: null as { href: string; label: string; size: string } | null,
