@@ -28,8 +28,8 @@ export type ImageAsset = {
   caption?: string;
   /**
    * True for illustrative stand-in images (not footage from the film).
-   * They are labelled "Placeholder" on the site so no one mistakes them
-   * for documentary material. Set false only for real production stills.
+   * Informational only: kept so they can be found and replaced once real
+   * production stills are approved.
    */
   illustrative?: boolean;
 };

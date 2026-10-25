@@ -12,7 +12,7 @@ const tints: Tint[] = ["neutral", "gold", "steel", "neutral", "crimson", "neutra
 export function ContactSheet() {
   const stills = media.interviewStills;
   const frames = stills.length
-    ? stills.map((s, i) => ({ image: s, caption: s.caption ?? s.alt, scene: placeholderContactSheet[i % 8].scene, placeholder: Boolean(s.illustrative) }))
+    ? stills.map((s, i) => ({ image: s, caption: s.caption ?? s.alt, scene: placeholderContactSheet[i % 8].scene, placeholder: false }))
     : placeholderContactSheet.map((p) => ({ image: null, caption: p.caption, scene: p.scene, placeholder: true }));
 
   return (
@@ -27,7 +27,7 @@ export function ContactSheet() {
         </div>
         <Reveal as="p" className="max-w-sm text-bone">
           Frames from the road, the kitchen table and the morning shift.{" "}
-          {frames.some((f) => f.placeholder) && (
+          {!stills.length && (
             <span className="text-ash">These are placeholder frames until production stills are approved for release.</span>
           )}
         </Reveal>
@@ -74,7 +74,7 @@ export function ContactSheet() {
                   </div>
                   <figcaption className="label mt-3 flex justify-between gap-3 text-[0.6rem] text-ash">
                     <span>
-                      {String(i + 1).padStart(2, "0")}A {f.placeholder ? "· Placeholder" : ""}
+                      {String(i + 1).padStart(2, "0")}A {f.image ? "" : "· Placeholder"}
                     </span>
                     <span className="text-right text-bone">{f.caption}</span>
                   </figcaption>

@@ -50,8 +50,8 @@ export function Frame({
         />
       )}
       <div className="vignette absolute inset-0" aria-hidden />
-      {/* Generated scenes and illustrative images are always labelled; real production stills are not. */}
-      {showLabel && (!image || image.illustrative) && (
+      {/* Only the generated stand-in scenes are labelled; supplied images are not. */}
+      {showLabel && !image && (
         <span className="label absolute bottom-3 left-3 z-10 flex items-center gap-2 text-[0.6rem] text-ivory/70">
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-gold" aria-hidden />
           Placeholder{label ? ` · ${label}` : ""}
