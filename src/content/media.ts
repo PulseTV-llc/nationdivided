@@ -148,9 +148,27 @@ export const media = {
 
   /** Behind-the-scenes production stills. */
   behindTheScenes: [
-    still("water-tower-road", "County road", "A small-town water tower silhouetted against a twilight sky"),
-    still("midnight-diner", "Night shift", "An empty diner counter under pendant lights on a rainy night"),
-    still("detroit-dusk", "Detroit", "Detroit skyline at dusk, headlights streaming along a wet freeway"),
+    {
+      src: "/media/behind-the-scenes/bts-01.jpg",
+      alt: "An interview in a warehouse studio: a man on a yellow couch faces the interviewer across the room, with a softbox light and boom pole between them and tall factory windows behind",
+      width: 1440,
+      height: 962,
+      focus: "18% 50%",
+    },
+    {
+      src: "/media/behind-the-scenes/bts-02.jpg",
+      alt: "A man in a blue polo shirt gestures as he talks during an interview, a camera rig at the edge of the frame",
+      width: 1440,
+      height: 961,
+      focus: "85% 50%",
+    },
+    {
+      src: "/media/behind-the-scenes/bts-03.jpg",
+      alt: "An older man in a grey sweater vest raises his hand mid-answer, seen past the cinema camera, monitor and sound bag filming him",
+      width: 1440,
+      height: 962,
+      focus: "38% 50%",
+    },
   ] as ImageAsset[],
 
   /** /film title card background. */
