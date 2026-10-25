@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { casting } from "@/content/casting";
 import { site } from "@/content/site";
+import { media } from "@/content/media";
 import { Frame } from "@/components/cinematic/frame";
 import { Lines, Reveal, Words } from "@/components/cinematic/reveal";
 import { Cta } from "@/components/ui/cta";
@@ -114,7 +115,15 @@ export default function CastingPage() {
                 text="We want to follow a real person through an ordinary day: not a speech, not a debate, just life as it's actually lived. Here's what that may involve."
               />
               <div className="relative mt-10 aspect-[4/5] overflow-hidden">
-                <Frame scene="studio" tint="gold" seed={5} label="Interview setup" className="h-full w-full" />
+                <Frame
+                  image={media.castingDayInLife}
+                  scene="studio"
+                  tint="gold"
+                  seed={5}
+                  label="Interview setup"
+                  sizes="(min-width: 1024px) 30vw, 100vw"
+                  className="h-full w-full"
+                />
               </div>
             </div>
           </div>

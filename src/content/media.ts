@@ -125,6 +125,15 @@ export const media = {
     "the-conversation": chapterStill("the-conversation", "A front door left open onto a warmly lit hallway at night"),
   } as Record<string, ImageAsset | null>,
 
+  /** Casting page — "A day in your life" (4:5 portrait). */
+  castingDayInLife: {
+    src: "/media/casting/day-in-your-life.jpg",
+    alt: "A woman sitting on the edge of her bed tying her running shoes in warm morning light, a coffee cup on the nightstand and a dog resting on the rug",
+    width: 1122,
+    height: 1402,
+    illustrative: true,
+  } as ImageAsset | null,
+
   /** Behind-the-scenes production stills. */
   behindTheScenes: [] as ImageAsset[],
 
