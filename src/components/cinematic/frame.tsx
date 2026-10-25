@@ -42,22 +42,21 @@ export function Frame({
           className={`object-cover ${drift ? "animate-drift" : ""}`}
         />
       ) : (
-        <>
-          <Scene
-            scene={scene}
-            tint={tint}
-            seed={seed}
-            className={`absolute inset-0 h-full w-full ${drift ? "animate-drift" : ""}`}
-          />
-          {showLabel && (
-            <span className="label absolute bottom-3 left-3 z-10 flex items-center gap-2 text-[0.6rem] text-ivory/70">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-gold" aria-hidden />
-              Placeholder{label ? ` · ${label}` : ""}
-            </span>
-          )}
-        </>
+        <Scene
+          scene={scene}
+          tint={tint}
+          seed={seed}
+          className={`absolute inset-0 h-full w-full ${drift ? "animate-drift" : ""}`}
+        />
       )}
       <div className="vignette absolute inset-0" aria-hidden />
+      {/* Generated scenes and illustrative images are always labelled; real production stills are not. */}
+      {showLabel && (!image || image.illustrative) && (
+        <span className="label absolute bottom-3 left-3 z-10 flex items-center gap-2 text-[0.6rem] text-ivory/70">
+          <span className="inline-block h-1.5 w-1.5 rounded-full bg-gold" aria-hidden />
+          Placeholder{label ? ` · ${label}` : ""}
+        </span>
+      )}
     </div>
   );
 }

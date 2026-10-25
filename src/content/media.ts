@@ -64,6 +64,14 @@ export type PlaceholderScene =
   | "flag"
   | "studio";
 
+const chapterStill = (file: string, alt: string): ImageAsset => ({
+  src: `/media/chapters/${file}.jpg`,
+  width: 1086,
+  height: 1448,
+  alt,
+  illustrative: true,
+});
+
 export const media = {
   /** Homepage hero. 10–20s seamless loop, 1920×1080, ≤ 6 MB. */
   heroVideo: null as VideoAsset | null,
@@ -102,6 +110,15 @@ export const media = {
     still("rural-highway", "The drive home", "A moonlit rural highway leading past a farm with a lit barn"),
     still("interview-studio", "Interview setup", "An empty leather chair under studio lights, camera and boom microphone ready"),
   ] as ImageAsset[],
+
+  /** "Beyond the Ballot" chapter frames, keyed by chapter id (4:5 portrait). */
+  chapterImages: {
+    "the-vote": chapterStill("the-vote", "An audience in a dark hall looking up toward stage lights"),
+    "the-expectation": chapterStill("the-expectation", "A straight two-lane highway running toward a setting sun"),
+    "the-reality": chapterStill("the-reality", "A steaming mug on a kitchen table by a window at dusk"),
+    "the-consequences": chapterStill("the-consequences", "An empty diner counter with red stools under pendant lights at night"),
+    "the-conversation": chapterStill("the-conversation", "A front door left open onto a warmly lit hallway at night"),
+  } as Record<string, ImageAsset | null>,
 
   /** Behind-the-scenes production stills. */
   behindTheScenes: [] as ImageAsset[],

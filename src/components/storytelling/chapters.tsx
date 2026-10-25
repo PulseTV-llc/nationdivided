@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { chapters } from "@/content/story";
 import { Frame } from "@/components/cinematic/frame";
 import { Lines, Reveal, Words } from "@/components/cinematic/reveal";
-import type { PlaceholderScene } from "@/content/media";
+import { media, type PlaceholderScene } from "@/content/media";
 import type { Tint } from "@/components/cinematic/scene";
 
 const scenes: PlaceholderScene[] = ["crowd", "road", "kitchen", "diner", "porch"];
@@ -114,7 +114,16 @@ export function Chapters() {
               </span>
               <div className="mt-10 grid gap-10 lg:grid-cols-2">
                 <Reveal mode="mask" className="relative aspect-[4/5] lg:order-2">
-                  <Frame scene={scenes[i]} tint={tints[i]} seed={i + 3} label={c.title} className="h-full w-full" drift />
+                  <Frame
+                    image={media.chapterImages[c.id]}
+                    scene={scenes[i]}
+                    tint={tints[i]}
+                    seed={i + 3}
+                    label={c.title}
+                    sizes="(min-width: 1024px) 30vw, (min-width: 768px) 60vw, 100vw"
+                    className="h-full w-full"
+                    drift
+                  />
                 </Reveal>
                 <div className="flex flex-col justify-between gap-10">
                   <Reveal as="p" className="text-lg leading-relaxed text-bone">
