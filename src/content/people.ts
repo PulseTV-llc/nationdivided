@@ -29,9 +29,8 @@ export type Participant = {
 };
 
 const placeholderStory = [
-  "This page shows how a participant's story will be presented once they have approved it for publication.",
-  "Long-form text from the participant's interviews will appear here: who they are, where they live, how they came to their vote, and what has happened since.",
-  "Nothing on this page describes a real person.",
+  "This story is still being filmed.",
+  "Once the participant has reviewed and approved it, their story will be told here in their own words: who they are, where they live, how they came to their vote, and what has happened since.",
 ];
 
 export const people: Participant[] = [
@@ -42,7 +41,7 @@ export const people: Participant[] = [
     location: null,
     role: "Story in production",
     chapter: "The Vote",
-    summary: "A layout placeholder for a participant whose story begins at the ballot box.",
+    summary: "A story that begins at the ballot box.",
     story: placeholderStory,
     quotes: [],
     portrait: null,
@@ -56,7 +55,7 @@ export const people: Participant[] = [
     location: null,
     role: "Story in production",
     chapter: "The Expectation",
-    summary: "A layout placeholder for a participant whose story centres on what they hoped would change.",
+    summary: "A story about what they hoped would change.",
     story: placeholderStory,
     quotes: [],
     portrait: null,
@@ -70,7 +69,7 @@ export const people: Participant[] = [
     location: null,
     role: "Story in production",
     chapter: "The Reality",
-    summary: "A layout placeholder for a participant reflecting on life after the election.",
+    summary: "A story about life after the election.",
     story: placeholderStory,
     quotes: [],
     portrait: null,
@@ -84,7 +83,7 @@ export const people: Participant[] = [
     location: null,
     role: "Story in production",
     chapter: "The Conversation",
-    summary: "A layout placeholder for a participant and the people in their life who see things differently.",
+    summary: "A story about the people in their life who see things differently.",
     story: placeholderStory,
     quotes: [],
     portrait: null,

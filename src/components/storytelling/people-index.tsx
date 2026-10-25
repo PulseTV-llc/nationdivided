@@ -38,7 +38,7 @@ export function PeopleIndex({ people }: { people: Participant[] }) {
             >
               <span className="label text-gold md:col-span-1">{String(i + 1).padStart(2, "0")}</span>
               <span className="relative aspect-[4/5] w-full overflow-hidden md:hidden">
-                <Frame image={p.portrait} scene={p.scene} tint={tints[i % 4]} seed={60 + i} className="h-full w-full" />
+                <Frame image={p.portrait} scene={p.scene} tint={tints[i % 4]} seed={60 + i} showLabel={false} className="h-full w-full" />
               </span>
               <span className="display text-[clamp(2.6rem,7vw,7rem)] leading-[0.9] text-ivory transition-[transform,color] duration-700 ease-[var(--ease-out-expo)] group-hover:translate-x-4 md:col-span-7">
                 {p.displayName}
@@ -46,7 +46,7 @@ export function PeopleIndex({ people }: { people: Participant[] }) {
               <span className="md:col-span-4 md:text-right">
                 <span className="label block text-ash">Chapter · {p.chapter}</span>
                 <span className="mt-2 block text-sm text-bone">{p.location ?? "Location withheld"}</span>
-                {p.placeholder && <span className="label mt-2 block text-[0.6rem] text-gold/80">Placeholder profile</span>}
+                {p.placeholder && <span className="label mt-2 block text-[0.6rem] text-gold/80">Coming soon</span>}
               </span>
             </Link>
           </li>
@@ -63,7 +63,7 @@ export function PeopleIndex({ people }: { people: Participant[] }) {
       >
         {people.map((p, i) => (
           <div key={p.slug} className={`absolute inset-0 transition-opacity duration-300 ${hover === i ? "opacity-100" : "opacity-0"}`}>
-            <Frame image={p.portrait} scene={p.scene} tint={tints[i % 4]} seed={60 + i} className="h-full w-full" />
+            <Frame image={p.portrait} scene={p.scene} tint={tints[i % 4]} seed={60 + i} showLabel={false} className="h-full w-full" />
           </div>
         ))}
       </div>

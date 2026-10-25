@@ -17,10 +17,10 @@ export async function generateMetadata({ params }: PageProps<"/stories/[slug]">)
   const p = getParticipant(slug);
   if (!p) return { title: "Story not found" };
   return {
-    title: p.placeholder ? `${p.displayName} (placeholder)` : p.displayName,
+    title: p.placeholder ? `${p.displayName} (in production)` : p.displayName,
     description: p.summary,
     alternates: { canonical: `/stories/${p.slug}` },
-    // Placeholder profiles are layout previews — keep them out of search results.
+    // Unpublished (in-production) profiles stay out of search results.
     robots: p.placeholder ? { index: false, follow: true } : undefined,
   };
 }
@@ -44,7 +44,7 @@ async function Story({ params }: { params: Promise<{ slug: string }> }) {
     <article>
       <header className="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden">
         <div className="absolute inset-0 -z-10" aria-hidden={p.portrait ? undefined : true}>
-          <Frame image={p.portrait} scene={p.scene} tint="neutral" seed={60 + index} label="Portrait" className="h-full w-full" priority drift />
+          <Frame image={p.portrait} scene={p.scene} tint="neutral" seed={60 + index} showLabel={false} className="h-full w-full" priority drift />
         </div>
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/40 to-transparent" aria-hidden />
         <div className="gutter pb-16 pt-[calc(var(--nav-h)+3rem)]">
@@ -60,8 +60,8 @@ async function Story({ params }: { params: Promise<{ slug: string }> }) {
 
       {p.placeholder && (
         <div role="note" className="gutter border-y border-gold/40 bg-gold/5 py-5 text-sm text-bone">
-          <span className="label mr-3 text-gold">Placeholder</span>
-          This page previews how a participant&rsquo;s story will appear. It does not describe a real person.
+          <span className="label mr-3 text-gold">In production</span>
+          This story is still being filmed and will be published once the participant has approved it.
         </div>
       )}
 

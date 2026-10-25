@@ -29,9 +29,9 @@ export default function StoriesPage() {
         </div>
         {allPlaceholders && (
           <p role="note" className="mt-12 max-w-3xl border-l-2 border-gold/70 py-2 pl-5 text-sm leading-relaxed text-ash">
-            <span className="label mb-1 block text-gold">Placeholder profiles</span>
-            No participant stories have been published yet. The profiles below show the layout only and do not describe real
-            people.
+            <span className="label mb-1 block text-gold">In production</span>
+            These stories are still being filmed. Each one will be published here once the participant has reviewed and
+            approved it.
           </p>
         )}
       </section>
